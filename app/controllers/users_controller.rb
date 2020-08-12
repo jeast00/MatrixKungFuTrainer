@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
 
-  get '/signup' do
-    erb :'users/signup'
+  get '/registrations/signup' do
+    erb :'registrations/signup'
   end
 
   post '/signup' do
     @user = User.create(params)
-    erb :'users/homepage'
+    erb :'/homepage'
   end
 
 end
