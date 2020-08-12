@@ -4,9 +4,11 @@ class UsersController < ApplicationController
     erb :'registrations/signup'
   end
 
-  post '/signup' do
-    @user = User.create(params)
-    erb :'/homepage'
+  post '/registrations' do
+    @user = User.new(params)
+    @user.save
+    session[:user_id] = @user.id
+    erb :'users/homepage'
   end
 
 end
