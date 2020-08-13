@@ -29,4 +29,7 @@ class SessionsController < ApplicationController
     @user = User.find(session[:user_id])
     erb :'users/homepage'
   end
+
+
+  #add helper methods for users that are logged in and users that are the current user
 end
