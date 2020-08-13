@@ -16,12 +16,13 @@ class UsersController < ApplicationController
   end
 
   post '/sessions' do
-    @user = User.find_by(username: params[:username], password: params[:password])
-    if @user
+    user = User.find_by(username: params[:username], password: params[:password])
+    if user && user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect '/users/homepage'
+      erb :'users/homepage'
+    else
+      erb :'sessions/login'
     end
-    redirect '/sessions/login'
   end
 
 
