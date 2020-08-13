@@ -25,7 +25,6 @@ class SessionsController < ApplicationController
     end
   end
 
-
   get '/users/homepage' do
     @user = User.find(session[:user_id])
     erb :'users/homepage'
