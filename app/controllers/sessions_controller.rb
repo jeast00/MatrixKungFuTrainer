@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
   post '/registrations' do
     @user = User.create(params)
-    # @user.save
+    # @user.save - if using User.new
     session[:user_id] = @user.id
     erb :'users/homepage'
   end
@@ -32,4 +32,13 @@ class SessionsController < ApplicationController
 
 
   #add helper methods for users that are logged in and users that are the current user
+  helpers do
+    def logged_in?
+      !!session[:user_id]
+    end
+
+    def current_user
+      User.find(session[:user_id])
+    end
+  end
 end
