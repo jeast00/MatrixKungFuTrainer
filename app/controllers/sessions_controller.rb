@@ -30,6 +30,11 @@ class SessionsController < ApplicationController
     erb :'users/homepage'
   end
 
+  get '/logout' do
+    session.clear
+    redirect :'/' #main.erb
+  end
+
 
   helpers do
     def logged_in?
