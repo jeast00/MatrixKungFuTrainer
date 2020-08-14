@@ -31,7 +31,6 @@ class SessionsController < ApplicationController
   end
 
 
-  #add helper methods for users that are logged in and users that are the current user
   helpers do
     def logged_in?
       !!session[:user_id]
