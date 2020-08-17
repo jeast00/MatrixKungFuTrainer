@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       erb :'users/homepage'
     else
-      erb :'sessions/login'
+      erb :'sessions/error'
     end
   end
 
